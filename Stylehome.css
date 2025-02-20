@@ -1,0 +1,128 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('Planodefundo.jpg') no-repeat center center fixed;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    image-rendering: high-quality;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 50px;
+    font-weight: bold;
+    color: #0e41ce;
+    font-family: 'Cambria', sans-serif;
+    cursor: pointer;
+}
+
+.header:hover .dropdown {
+    display: block;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+    width: 150px;
+    z-index: 1;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #033ab9;
+    font-size: 16px;
+}
+
+.button-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+h2 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    background: #1e4b7c;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Barra de pesquisa */
+.search-bar {
+    position: fixed;
+    top: 20px; /* Distância do topo */
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Ajuste o gap conforme necessário */
+    background-color: rgba(1, 14, 124, 0.8); /* Fundo semitransparente */
+    padding: 8px 16px;
+    border-radius: 25px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    width: 50%; /* Esticar a barra de pesquisa */
+}
+
+.search-bar input {
+    flex-grow: 1; /* O campo de pesquisa agora ocupa o espaço disponível */
+    padding: 8px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.search-bar i {
+    color: white; /* Cor do ícone */
+    font-size: 20px; /* Tamanho do ícone */
+    cursor: pointer; /* Adiciona o cursor de ponteiro para interação */
+}
+

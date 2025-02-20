@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>área de Empresas</title>
+    <script>
+        function togglePassword() {
+            var senhaInput = document.getElementById("senha");
+            var tipo = senhaInput.type === "password" ? "text" : "password";
+            senhaInput.type = tipo;
+        }
+        function redirecionarHome(event) {
+            event.preventDefault(); 
+            window.location.href = "Áreaempresas.html";
+        }
+   </script>
+
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('business-concept-with-team-close-up.jpg');
+            background-size: 100%;
+            background-attachment: fixed;
+            background-repeat: no repeat;
+            background-position: center center;
+            image-rendering: high-quality;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    }
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            border: none;
+            background: #007BFF;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+    </head>
+    <body>
+    <div class="container">
+        <h2>login empresas</h2>
+        <form action="#" method="POST" onsubmit="redirecionarHome(event)">
+            <label for="nome">Nome da empresa:</label>
+            <input type="text" id="nome" name="nome" required>
+            
+            <label for="number">CNPJ:</label>
+            <input type="number" id="number" name="CNPJ" required>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="Nova Senha" required>
+            
+            <label for="senha">Confirmar Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+            
+            
+            <button type="submit">Entrar</button>
+        </form>
+</body>
+</html>

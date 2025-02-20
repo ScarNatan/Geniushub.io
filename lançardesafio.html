@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lançar Desafios - Genius HUB</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('business-concept-with-team-close-up.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center center;
+            image-rendering: high-quality;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background: #004080;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 99%;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 80px auto 20px auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #004080;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #00264d;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <span>Área da Empresa</span>
+        <div>
+            <a href="home.html">Minha Conta</a>
+            <a href="index.html">Sair</a>
+            <a href="#">Respostas</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>Lançar Novo Desafio</h2>
+        <form id="desafioForm">
+            <input type="text" id="titulo" placeholder="Título do Desafio" required>
+            <textarea id="descricao" rows="4" placeholder="Descrição do Desafio" required></textarea>
+            <button type="submit">Lançar Desafio</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("desafioForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const titulo = document.getElementById("titulo").value;
+            const descricao = document.getElementById("descricao").value;
+            alert("Desafio lançado com sucesso!\nTítulo: " + titulo + "\nDescrição: " + descricao);
+            document.getElementById("titulo").value = "";
+            document.getElementById("descricao").value = "";
+        });
+    </script>
+</body>
+</html>
