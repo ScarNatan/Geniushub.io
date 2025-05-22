@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('business-concept-with-team-close-up.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    image-rendering: high-quality;
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    background: #004080;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 99%;
+    z-index: 1000;
+}
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+.container {
+    max-width: 1000px;
+    margin: 100px auto 20px auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.card h3 {
+    margin-top: 0;
+    color: #004080;
+}
+.card p {
+    margin: 10px 0;
+}
+.card button {
+    background: #004080;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.card button:hover {
+    background: #00264d;
+}

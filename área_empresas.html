@@ -1,57 +1,11 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área da Empresa-Genius HUB</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: url('business-concept-with-team-close-up.jpg');
-            background-size: cover;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            background-position: center center;
-            image-rendering: high-quality;
-            margin: 0;
-            padding: 0;
-        }
-        .navbar {
-            background: #004080;
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 99%;
-        }
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 80px auto 20px auto;
-            text-align: center;
-        }
-        button {
-            margin-top: 15px;
-            padding: 15px 20px;
-            font-size: 16px;
-            background: #004080;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #00264d;
-        }
-    </style>
+    <title>Área da Empresa - Genius HUB</title>
+    <link rel="stylesheet" href="StyleAreaempresas.css">
+    <link rel="shortcut icon" href="Genius-Hub-img.ico.ico" type="imagem Genius hub ico">
 </head>
 <body>
     <div class="navbar">
@@ -59,11 +13,65 @@
         <div>
             <a href="home.html">Minha Conta</a>
             <a href="home.html">Sair</a>
-            <a href="lancar_desafio.html">Lançar Desafios</a>
-            <a href="#">Respostas</a>
+            
         </div>
     </div>
-    
- 
-</body>
-</html>
+
+    <div class="container">
+        <h2>Desafios para Avaliação de Estudantes</h2>
+
+        <div class="card">
+            <h3>Desafio 1: Página de Login Responsiva</h3>
+            <p>Crie uma página de login utilizando HTML, CSS e JavaScript, com validação de campos e responsividade para diferentes dispositivos.</p>
+            <button>Ver Respostas</button>
+        </div>
+
+        <div class="card">
+            <h3>Desafio 2: API de Tarefas em Node.js</h3>
+            <p>Desenvolva uma API REST em Node.js que permita cadastrar, listar, editar e excluir tarefas. Os dados podem ser armazenados em memória.</p>
+            <button>Ver Respostas</button>
+        </div>
+
+        <div class="card">
+            <h3>Desafio 3: Tela de Cadastro de Currículo</h3>
+            <p>Implemente uma tela para cadastro de currículo com campos de nome, curso, experiência e upload de PDF. Validação obrigatória no formulário.</p>
+            <button>Ver Respostas</button>
+        </div>
+
+        <div class="card">
+            <h3>Desafio 4: Proposta de Solução Digital</h3>
+            <p>Descreva uma solução digital para ajudar equipes de projeto a se organizarem de forma mais eficiente. Pode ser um protótipo ou proposta conceitual.</p>
+            <button>Ver Respostas</button>
+        </div>
+       
+       <script>
+            // Função para carregar as respostas de um desafio
+            function verRespostas(desafio) {
+                fetch(`http://localhost:3000/respostas/${desafio}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const divRespostas = document.getElementById(`respostas${desafio.replace(/ /g, '')}`);
+                        divRespostas.innerHTML = ''; // Limpar antes de adicionar novas respostas
+                        if (data.length === 0) {
+                            divRespostas.innerHTML = '<p>Nenhuma resposta ainda.</p>';
+                        } else {
+                            data.forEach(resposta => {
+                                const respostaDiv = document.createElement('div');
+                                respostaDiv.classList.add('resposta');
+                                respostaDiv.innerHTML = `
+                                    <p><strong>Aluno:</strong> ${resposta.aluno}</p>
+                                    <p><strong>Resposta:</strong> ${resposta.resposta}</p>
+                                    <p><small>Enviado em: ${resposta.timestamp}</small></p>
+                                    <hr>
+                                `;
+                                divRespostas.appendChild(respostaDiv);
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erro ao carregar respostas:', error);
+                    });
+            }
+        </script>
+    </body>
+    </html>
