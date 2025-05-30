@@ -3,22 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área do aluno</title>
-    <link rel="stylesheet" href="Style.student.css">
+    <title>Área do Aluno - Genius Hub</title>
+    <link rel="stylesheet" href="style-aluno.css">
+    <link rel="shortcut icon" href="img/Genius-Hub-img.ico.ico" type="image/x-icon">
 </head>
-
 <body>
-    <div class="header">
-        Genius Hub
-        <div class="dropdown">
-            <a href="competições.html">Competições</a>
-            <a href="Sua pontuação.html">Sua pontuação</a>
-            
-        </div>
-    </div>
-    <div class="button-container">
-        <button onclick="location.href='home.html'">Sair</button>
-        <button onclick="location.href='cadastro.html'">Cadastre-se</button>
-    </div>
+
+    <header>
+        <div class="logo">Genius Hub</div>
+        <nav>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Competições</a></li>
+                <li><a href="#">Ranking</a></li>
+                <li><a href="#">Perfil</a></li>
+                <li><a href="index.html" class="logout">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="perfil">
+            <img src="avatar.png" alt="Avatar do aluno">
+            <div class="info">
+                <h2>Bem-vindo, Aluno!</h2>
+                <p>Instituição: ????</p>
+                <p>Pontuação: <strong>000</strong> pontos</p>
+                <p>Ranking Atual: <strong>0 lugar</strong></p>
+            </div>
+        </section>
+
+        <section class="desafios">
+            <h2>Seus Desafios</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Página de Login</h3>
+                    <p>Status: <span class="status enviado">Enviado</span></p>
+                    <button>Ver Resposta</button>
+                </div>
+                <div class="card">
+                    <h3>API de Tarefas</h3>
+                    <p>Status: <span class="status pendente">Pendente</span></p>
+                    <button>Enviar Resposta</button>
+                </div>
+                <div class="card">
+                    <h3>Cadastro de Currículo</h3>
+                    <p>Status: <span class="status pendente">Pendente</span></p>
+                    <button>Enviar Resposta</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 Genius Hub - Todos os direitos reservados.
+    </footer>
+
 </body>
 </html>

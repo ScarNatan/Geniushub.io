@@ -3,97 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login aluno</title>
-    <link rel="shortcut icon" href="Genius-Hub-img.ico.ico" type="imagem Genius hub ico">
-    <script>
-        function togglePassword() {
-            var senhaInput = document.getElementById("senha");
-            var tipo = senhaInput.type === "password" ? "text" : "password";
-            senhaInput.type = tipo;
-        }
-        function redirecionarHome(event) {
-            event.preventDefault(); 
-            window.location.href = "Áreadoaluno.html";
-        }
-   </script>
-</head>
-<body>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background: url('34293835_blue_technical_background_1.jpg');
-        background-size: 100%;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-position: center center;
-        image-rendering: high-quality;
-        width: 100vw;
-        height: 100vh;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .container {
-        background: rgb(241, 235, 253);
-        padding: 25px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(19, 1, 1, 0.1);
-        width: 300px;
-        max-width: 100%;
-    }
-    h2 {
-        text-align: center;
-    }
-    label {
-        display: block;
-        margin-top: 10px;
-    }
-    input {
-        width: 100%;
-        padding: 5px;
-        margin-top: 5px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-    button {
-        width: 100%;
-        padding: 10px;
-        margin-top: 20px;
-        border: none;
-        background: #007BFF;
-        color: white;
-        border-radius: 20px;
-        cursor: pointer;
-    }
-    button:hover {
-        background: #0056b3;
-    }
-</style>
-</head>
-<body>
-<div class="container">
-    <h2>Login</h2>
-    <form action="#" method="POST" onsubmit="redirecionarHome(event)">
-       
-        <label for="text">Nome da instituição:</label>
-        <input type="text" id="text" name="text" required
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" required>
+    <title>Login Aluno | Genius Hub</title>
+    <link rel="shortcut icon" href="Genius-Hub-img.ico.ico" type="image/x-icon">
 
-        <label for="senha">confirmar senha:</label>
-        <input type="password" id="senha" name="senha" required>
-        
-        <span class="show-password" onclick="togglePassword()">👁️</span>
-        
+    <style>
+        :root {
+            --azul: #4f46e5;
+            --roxo: #7c3aed;
+            --escuro: #0f172a;
+            --branco: #f8fafc;
+            --vidro: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, var(--azul), var(--roxo));
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            background: var(--vidro);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            color: var(--branco);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--branco);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            margin-top: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--branco);
+            outline: none;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .show-password {
+            cursor: pointer;
+            display: block;
+            margin-top: 5px;
+            font-size: 18px;
+            color: var(--branco);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 25px;
+            background: var(--azul);
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: var(--roxo);
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            button {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Login do Aluno</h2>
+    <form onsubmit="redirecionarHome(event)">
+        <label for="instituicao">Nome da Instituição:</label>
+        <input type="text" id="instituicao" name="instituicao" placeholder="Digite sua instituição" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+
+        <label for="confirmar">Confirmar Senha:</label>
+        <input type="password" id="confirmar" name="confirmar" placeholder="Confirme sua senha" required>
+
+        <span class="show-password" onclick="togglePassword()">👁️ Mostrar/Esconder senha</span>
+
         <button type="submit">Entrar</button>
-        
-        
     </form>
 </div>
+
 </body>
+ <script src="script.login.aluno.js"></script>
+
 </html>

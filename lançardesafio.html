@@ -4,18 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lançar Desafios - Genius HUB</title>
+    <link rel="shortcut icon" href="Genius-Hub-img.ico.ico" type="imagem Genius hub ico">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: url('business-concept-with-team-close-up.jpg');
+            background: url('business-concept-with-team-close-up.jpg') no-repeat center center fixed;
             background-size: cover;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            background-position: center center;
-            image-rendering: high-quality;
             margin: 0;
             padding: 0;
         }
+
         .navbar {
             background: #004080;
             padding: 15px;
@@ -26,29 +24,48 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 99%;
+            width: 100%;
+            z-index: 1000;
         }
+
         .navbar a {
             color: white;
             text-decoration: none;
             margin: 0 10px;
         }
+
         .container {
             max-width: 800px;
-            margin: 80px auto 20px auto;
-            background: rgba(255, 255, 255, 0.9);
+            margin: 100px auto 20px auto;
+            background: rgba(255, 255, 255, 0.95);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
         input, textarea {
             width: 100%;
             padding: 10px;
-            margin: 10px 0;
+            margin-top: 5px;
+            margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            font-size: 16px;
         }
+
+        input:focus, textarea:focus {
+            outline: 2px solid #004080;
+            outline-offset: 2px;
+        }
+
         button {
             padding: 10px 20px;
             background: #004080;
@@ -56,7 +73,10 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
         }
+
         button:hover {
             background: #00264d;
         }
@@ -75,8 +95,12 @@
     <div class="container">
         <h2>Lançar Novo Desafio</h2>
         <form id="desafioForm">
-            <input type="text" id="titulo" placeholder="Título do Desafio" required>
-            <textarea id="descricao" rows="4" placeholder="Descrição do Desafio" required></textarea>
+            <label for="titulo">Título do Desafio</label>
+            <input type="text" id="titulo" name="titulo" placeholder="Digite o título" required>
+
+            <label for="descricao">Descrição do Desafio</label>
+            <textarea id="descricao" name="descricao" rows="4" placeholder="Descreva o desafio" required></textarea>
+            
             <button type="submit">Lançar Desafio</button>
         </form>
     </div>
@@ -84,12 +108,17 @@
     <script>
         document.getElementById("desafioForm").addEventListener("submit", function(event) {
             event.preventDefault();
-            const titulo = document.getElementById("titulo").value;
-            const descricao = document.getElementById("descricao").value;
-            alert("Desafio lançado com sucesso!\nTítulo: " + titulo + "\nDescrição: " + descricao);
-            document.getElementById("titulo").value = "";
-            document.getElementById("descricao").value = "";
+            const titulo = document.getElementById("titulo").value.trim();
+            const descricao = document.getElementById("descricao").value.trim();
+
+            if (titulo && descricao) {
+                alert("Desafio lançado com sucesso!\nTítulo: " + titulo + "\nDescrição: " + descricao);
+                document.getElementById("desafioForm").reset();
+            } else {
+                alert("Por favor, preencha todos os campos.");
+            }
         });
     </script>
 </body>
 </html>
+

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genius HUB</title>
+    <link rel="stylesheet" href="Stylehome.css">
+    <link rel="shortcut icon" href="Genius-Hub-img.ico" type="image/x-icon">
+    
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">Genius hub</div>
+        <nav class="menu">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Menu <i class="fas fa-chevron-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="logindoaluno.html">Sou aluno</a>
+                    <a href="login.empresas.html">Sou Empresa</a>
+                    <a href="#">Quem Somos</a>
+                </div>
+            </div>
+            <a href="#">Meus Desafios</a>
+        </nav>
+        <div class="auth-buttons">
+            <button onclick="location.href='loginusuário.html'">Login</button>
+            <button onclick="location.href='cadastro.html'">Cadastre-se</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Transforme desafios em soluções</h1>
+        <p>Conectamos empresas e solucionadores para acelerar a inovação.</p>
+        <div class="hero-buttons">
+            <button onclick="location.href='#desafios'">Ver Desafios</button>
+            <button onclick="location.href='Lançardesafios.html'">Publicar Desafio</button>
+        </div>
+    </section>
+
+    <!-- Barra de Pesquisa -->
+    <div class="search-bar">
+        <input type="text" placeholder="Buscar desafios, empresas ou categorias...">
+        <i class="fas fa-search"></i>
+    </div>
+
+    <!-- Desafios em Destaque -->
+    <section class="desafios" id="desafios">
+        <h2>Desafios em Destaque</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>Otimização de Logística</h3>
+                <p><b>Empresa:</b> Amazon</p>
+                <p><b>Categoria:</b> Logística</p>
+                <button>Ver mais</button>
+            </div>
+            <div class="card">
+                <h3>Melhorar IA de Recomendação</h3>
+                <p><b>Empresa:</b> Netflix</p>
+                <p><b>Categoria:</b> Tecnologia</p>
+                <button>Ver mais</button>
+            </div>
+            <div class="card">
+                <h3>Redução de Emissões</h3>
+                <p><b>Empresa:</b> Tesla</p>
+                <p><b>Categoria:</b> Sustentabilidade</p>
+                <button>Ver mais</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorias -->
+    <section class="categorias">
+        <h2>Categorias Populares</h2>
+        <div class="cat-container">
+            <div class="cat">Logística</div>
+            <div class="cat">Tecnologia</div>
+            <div class="cat">Sustentabilidade</div>
+            <div class="cat">Inteligência Artificial</div>
+        </div>
+    </section>
+
+    <!-- Como Funciona -->
+    <section class="como-funciona">
+        <h2>Como Funciona</h2>
+        <div class="steps">
+            <div class="step">1️⃣ Empresas lançam desafios</div>
+            <div class="step">2️⃣ Solucionadores se inscrevem</div>
+            <div class="step">3️⃣ Entregam soluções</div>
+            <div class="step">4️⃣ Feedback e recompensa</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Genius HUB | Todos os direitos reservados</p>
+        <div class="socials">
+            <a href="https://www.instagram.com/geniushub.work/"><i class="fab fa-instagram">instagram</i></a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
