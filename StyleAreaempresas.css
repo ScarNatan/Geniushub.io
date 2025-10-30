@@ -1,66 +1,197 @@
-body {
-    font-family: Arial, sans-serif;
-    background: url('business-concept-with-team-close-up.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: center center;
-    image-rendering: high-quality;
+/* 1. RESET E SETUP RESPONSIVO GERAL */
+* {
+    box-sizing: border-box; 
     margin: 0;
     padding: 0;
 }
+
+body {
+    font-family: Arial, sans-serif;
+    /* Fundo Principal Escuro: Cinza Chumbo */
+    background-color: #2c3e50; 
+    /* Cor do texto geral: Cinza Claro para contraste */
+    color: #ecf0f1; 
+    line-height: 1.6;
+    font-size: 16px; 
+}
+
+/* 2. NAVBAR (USA FLEXBOX) */
 .navbar {
-    background: #004080;
-    padding: 15px;
+    /* Cor da Navbar: Azul Marinho Escuro */
+    background-color: #061f3a; 
+    color: white;
+    padding: 15px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 99%;
-    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    width: 100%;
 }
 .navbar a {
     color: white;
     text-decoration: none;
-    margin: 0 10px;
+    margin-left: 20px;
+    font-size: 1rem;
+    transition: color 0.3s;
+    border-radius: 15px;
+    padding: 8px 12px;
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo leve para botões */
+    
 }
+.navbar span {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar div {
+    display: flex;
+    gap: 15px;
+    margin-left: 20px;
+}
+
+.navbar div a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Hover sutil */
+    border-radius: 4px;
+}
+
+/* 3. CONTAINER DE CARDS (USA CSS GRID) */
 .container {
-    max-width: 1000px;
-    margin: 100px auto 20px auto;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 10px;
+    max-width: 1200px; 
+    margin: 40px auto; 
+    padding-top:  0 ;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; 
 }
-h2 {
-    text-align: center;
-    margin-bottom: 30px;
-}
-.card {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+
+.container h2 {
+    grid-column: 1 / -1; 
+    margin-bottom: 0px;
     margin-bottom: 20px;
+   text-align: center;
+    font-size: 2rem;
+    top: 50px;
+    color: #ecf0f1;
 }
+
+/* 4. ESTILO DOS CARDS */
+.card {
+    /* Fundo do Card: Cinza Claro (para contraste alto com o texto) */
+    background-color: #eef1ff; 
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+    display: flex; 
+    flex-direction: column;
+    /* Cor do texto do Card: Cinza Escuro para contraste */
+    color: #34495e; 
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
 .card h3 {
-    margin-top: 0;
-    color: #004080;
+    /* Cor dos títulos dos cards: Azul Marinho para destacar */
+    color: #1a334d; 
+    margin-bottom: 15px;
+    font-size: 1.3rem;
 }
+
 .card p {
-    margin: 10px 0;
+    margin-bottom: 20px;
+    flex-grow: 1; 
 }
+
 .card button {
-    background: #004080;
+    /* Botão Verde de Ação */
+    background-color: #28a745;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 10px 15px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background 0.3s;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    align-self: flex-start;
 }
+
 .card button:hover {
-    background: #00264d;
+    background-color: #218838;
+}
+
+/* 5. ESTILO PARA RESPOSTAS (JavaScript) */
+.respostas-container {
+    margin-top: 15px;
+    padding-top: 10px;
+    /* Linha divisória mais escura */
+    border-top: 1px solid #bdc3c7; 
+}
+
+.respostas-container .resposta {
+    /* Fundo da resposta: Um tom de azul bem sutil */
+    background-color: #dbe4f1; 
+    border-left: 4px solid #1a334d; /* Barra lateral Azul Marinho */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    color: #34495e; /* Texto escuro */
+}
+
+/* 6. MEDIA QUERIES (AJUSTES PARA TELAS MENORES) */
+
+/* Tablet (Telas até 768px) */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 3%;
+        gap: 20px;
+    }
+
+    .container h2 {
+        font-size: 1.8rem;
+    }
+
+    .navbar {
+        padding: 12px 3%;
+    }
+}
+
+/* Mobile (Telas até 480px) */
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .navbar div {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-left: 0;
+    }
+
+    .navbar div a {
+        margin-left: 0;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+}
+/* ESTILO PARA O RODAPÉ (FOOTER) */
+footer {
+    /* Fundo Escuro para contrastar com o texto claro */
+    background-color: #1a334d; /* Azul Marinho Escuro (igual à navbar) */
+    color: #ecf0f1; /* Texto Claro */
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px; /* Garante que haja espaço acima do rodapé */
+    width: 100%; /* Ocupa toda a largura */
+}
+
+footer p {
+    font-size: 0.9rem;
+    margin: 0;
 }

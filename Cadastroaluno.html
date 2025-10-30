@@ -1,60 +1,83 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro Aluno</title>
-    <link rel="shortcut icon" href="Genius-Hub-img.ico.ico" type="image/x-icon">
-    <link rel="stylesheet" href="Style.Cadastro.Aluno.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro Aluno</title>
+  <link rel="shortcut icon" href="/Genius-hub/img/ChatGPT Image 27 de set. de 2025, 21_19_18.png" type="image/x-icon">
+  <link rel="stylesheet" href="Style.Cadastro.Aluno.css">
 
-    <script>
-        function togglePassword() {
-            const senhaInput = document.getElementById("senha");
-            const senhaConfirmInput = document.getElementById("senhaConfirm");
-            const tipo = senhaInput.type === "password" ? "text" : "password";
-            senhaInput.type = tipo;
-            senhaConfirmInput.type = tipo;
-        }
+  <script>
+    function togglePassword() {
+      const senhaInput = document.getElementById("senha");
+      const senhaConfirmInput = document.getElementById("senhaConfirm");
+      const tipo = senhaInput.type === "password" ? "text" : "password";
+      senhaInput.type = tipo;
+      senhaConfirmInput.type = tipo;
+    }
 
-        function redirecionarHome(event) {
-            event.preventDefault();
-            window.location.href = "Áreadoaluno.html";
-        }
-    </script>
+    function redirecionarHome(event) {
+      event.preventDefault();
+
+      const nome = document.getElementById("nome").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const senha = document.getElementById("senha").value;
+      const senhaConfirm = document.getElementById("senhaConfirm").value;
+
+      if (senha !== senhaConfirm) {
+        alert("As senhas não coincidem.");
+        return;
+      }
+
+      const aluno = {
+        nome: nome,
+        email: email,
+        senha: senha
+      };
+
+      // Salvar no localStorage
+      localStorage.setItem("usuarioGeniusHub", JSON.stringify(aluno));
+
+      alert("Cadastro realizado com sucesso!");
+
+      // Redirecionar para login
+      window.location.href = "logindoaluno.html";
+    }
+  </script>
 </head>
 <body>
 
-<div class="container">
+  <div class="container">
     <h2>Cadastro Aluno</h2>
     <form onsubmit="redirecionarHome(event)">
 
-        <label for="instituicao">Nome da instituição</label>
-        <input type="text" id="instituicao" name="instituicao" required>
+      <label for="instituicao">Nome da instituição</label>
+      <input type="text" id="instituicao" name="instituicao" required>
 
-        <label for="nome">Seu nome</label>
-        <input type="text" id="nome" name="nome" required>
+      <label for="nome">Seu nome</label>
+      <input type="text" id="nome" name="nome" required>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
 
-        <div class="password-wrapper">
-            <label for="senha">Senha</label>
-            <input type="password" id="senha" name="senha" required>
-        </div>
+      <div class="password-wrapper">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" required>
+      </div>
 
-        <div class="password-wrapper">
-            <label for="senhaConfirm">Confirmar senha</label>
-            <input type="password" id="senhaConfirm" name="senhaConfirm" required>
-            <span class="show-password" onclick="togglePassword()">👁️</span>
-        </div>
+      <div class="password-wrapper">
+        <label for="senhaConfirm">Confirmar senha</label>
+        <input type="password" id="senhaConfirm" name="senhaConfirm" required>
+        <span class="show-password" onclick="togglePassword()">👁️</span>
+      </div>
 
-        <button type="submit">Cadastrar</button>
+      <button type="submit">Cadastrar</button>
 
-        <a class="link-login" href="logindoaluno.html">Já tenho cadastro</a>
-
+      <a class="link-login" href="logindoaluno.html">Já tenho cadastro</a>
     </form>
-</div>
+  </div>
 
 </body>
 </html>
+
 

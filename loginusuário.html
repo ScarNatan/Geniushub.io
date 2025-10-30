@@ -4,106 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Aluno | Genius Hub</title>
-    <link rel="shortcut icon" href="Genius-Hub-img.ico.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/Genius-hub/img/Genius-Hub-img.ico.ico" type="image/x-icon">
 
     <style>
-        :root {
-            --azul: #4f46e5;
-            --roxo: #7c3aed;
-            --escuro: #0f172a;
-            --branco: #f8fafc;
-            --vidro: rgba(255, 255, 255, 0.05);
-        }
+    :root {
+        --azul-escuro: #1e293b; /* Azul escuro Genius Hub */
+        --cinza-claro: #cbd5e1; /* Cinza claro para texto e bordas */
+        --cinza-escuro: #334155; /* Cinza escuro para fundo da caixa */
+        --branco: #f8fafc;
+        --vidro: rgba(255, 255, 255, 0.03);
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(to right, var(--azul), var(--roxo));
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: var(--azul-escuro);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
 
+    .container {
+        background: var(--vidro);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid var(--cinza-claro);
+        padding: 30px;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 380px;
+        color: var(--cinza-claro);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: var(--cinza-claro);
+        font-weight: 500;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        margin-top: 15px;
+        color: var(--cinza-claro);
+        font-size: 14px;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 6px;
+        background: var(--cinza-escuro);
+        color: var(--branco);
+        outline: none;
+    }
+
+    input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .show-password {
+        cursor: pointer;
+        display: block;
+        margin-top: 5px;
+        font-size: 16px;
+        color: var(--cinza-claro);
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        margin-top: 25px;
+        border: none;
+        border-radius: 20px;
+        background: var(--cinza-claro);
+        color: var(--azul-escuro);
+        font-size: 15px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    button:hover {
+        background: #94a3b8; /* tom intermediário de cinza */
+    }
+
+    @media (max-width: 480px) {
         .container {
-            background: var(--vidro);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 30px;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 400px;
-            color: var(--branco);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            padding: 20px;
         }
-
-        .container h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: var(--branco);
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            margin-top: 15px;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--branco);
-            outline: none;
-        }
-
-        input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .show-password {
-            cursor: pointer;
-            display: block;
-            margin-top: 5px;
-            font-size: 18px;
-            color: var(--branco);
-        }
-
         button {
-            width: 100%;
-            padding: 12px;
-            margin-top: 25px;
-            border: none;
-            border-radius: 25px;
-            background: var(--azul);
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background 0.3s;
+            padding: 10px;
         }
+    }
+</style>
 
-        button:hover {
-            background: var(--roxo);
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 20px;
-            }
-            button {
-                padding: 10px;
-            }
-        }
-    </style>
 
     <script>
         function togglePassword() {
@@ -123,13 +127,16 @@
 <body>
 
 <div class="container">
-    <h2>Login do Aluno</h2>
+    <h2>Login Visitante</h2>
     <form onsubmit="redirecionarHome(event)">
-        <label for="instituicao">Nome da Instituição:</label>
-        <input type="text" id="instituicao" name="instituicao" placeholder="Digite sua instituição" required>
+        
 
-        <label for="email">Email:</label>
+        <label for="email">E-mail:</label>
         <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+         
+        <label for="email">Confirme seu E-mail</E-mail>:</label>
+        <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+
 
         <label for="senha">Senha:</label>
         <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>

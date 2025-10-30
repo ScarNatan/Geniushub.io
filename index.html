@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Genius HUB</title>
     <link rel="stylesheet" href="Stylehome.css">
-    <link rel="shortcut icon" href="Genius-Hub-img.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/Genius-hub/img/ChatGPT Image 27 de set. de 2025, 21_14_03.png" type="image/x-icon">
     
 </head>
 
@@ -15,17 +15,15 @@
     <!-- Navbar -->
     <header class="navbar">
         <div class="logo">Genius hub</div>
-        <nav class="menu">
-            <a href="index.html">Home</a>
             <div class="dropdown">
-                <button class="dropbtn">Menu <i class="fas fa-chevron-down"></i></button>
-                <div class="dropdown-content">
-                    <a href="logindoaluno.html">Sou aluno</a>
-                    <a href="login.empresas.html">Sou Empresa</a>
-                    <a href="#">Quem Somos</a>
+                <div class="dropdown opções"></div>
+            <button type="button" onclick="location.href='index.html'">Início</button>
+                    <button type="button" onclick="location.href='logindoaluno.html'">Sou Aluno</button>
+                   <button type="button" onclick="location.href='login.empresas.html'">Sou Parceiro</button>
+                   <button type="button" onclick="location.href='#'">Quem Somos?</button>
                 </div>
             </div>
-            <a href="#">Meus Desafios</a>
+            
         </nav>
         <div class="auth-buttons">
             <button onclick="location.href='loginusuário.html'">Login</button>
@@ -39,16 +37,11 @@
         <p>Conectamos empresas e solucionadores para acelerar a inovação.</p>
         <div class="hero-buttons">
             <button onclick="location.href='#desafios'">Ver Desafios</button>
-            <button onclick="location.href='Lançardesafios.html'">Publicar Desafio</button>
+            <button type="button" onclick="location.href='lançardesafio.html'">Lançar desafios</button>
         </div>
     </section>
 
-    <!-- Barra de Pesquisa -->
-    <div class="search-bar">
-        <input type="text" placeholder="Buscar desafios, empresas ou categorias...">
-        <i class="fas fa-search"></i>
-    </div>
-
+   
     <!-- Desafios em Destaque -->
     <section class="desafios" id="desafios">
         <h2>Desafios em Destaque</h2>
@@ -99,10 +92,26 @@
     <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2025 Genius HUB | Todos os direitos reservados</p>
-        <div class="socials">
-            <a href="https://www.instagram.com/geniushub.work/"><i class="fab fa-instagram">instagram</i></a>
         </div>
     </footer>
+
+<script>
+let prevScrollPos = window.pageYOffset;
+
+window.onscroll = function() {
+    const currentScrollPos = window.pageYOffset;
+    const navbar = document.querySelector(".navbar");
+
+    if (prevScrollPos > currentScrollPos) {
+        navbar.style.top = "0"; // mostra a navbar
+    } else {
+        navbar.style.top = "-80px"; // esconde a navbar
+    }
+
+    prevScrollPos = currentScrollPos;
+};
+</script>
+
 
 </body>
 
